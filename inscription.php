@@ -36,11 +36,6 @@ Confirmation password : <input type="text" name="confirmpassword" value=""><br>
 
 <?php
 
-//Requete sur TOUTES les infos
-$connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT * FROM `utilisateurs`";
-$query = mysqli_query($connexion,$requete);
-$resultat= mysqli_fetch_all($query);
 
 
 

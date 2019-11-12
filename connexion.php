@@ -10,7 +10,7 @@ plusieurs) variables de session sont créées. -->
 
 <?php
 
-echo $_POST['nom'];
+
 
 
 

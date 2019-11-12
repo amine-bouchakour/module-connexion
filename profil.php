@@ -12,6 +12,11 @@ qui sont actuellement stockées en base de données. -->
 <?php
 session_start();
 
+//Requete sur TOUTES les infos
+$connexion = mysqli_connect("localhost","root","","moduleconnexion");
+$requete = "SELECT `login`,`prenom`,`nom`,`password` FROM `utilisateurs`";
+$query = mysqli_query($connexion,$requete);
+$resultat= mysqli_fetch_all($query);
 
 
 
@@ -30,7 +35,23 @@ Confirmation password : <input type="text" name="confirmpassword" value="<?php e
 <input type="submit" name="submit" value="S'inscrire"><br>
 </form>
 
+<?php
 
+
+$i=0;
+while($i<count($resultat))
+{
+    $j=0;
+    echo "<tr>";
+    while ($j<count($resultat[$i]))
+    {
+        echo "<td>".$resultat[$i][$j]."</td>".' ';
+        $j++;
+    }
+    echo "</tr>";
+    $i++;
+} 
+?>
 
 
 </html>
