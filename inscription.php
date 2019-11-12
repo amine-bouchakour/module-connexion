@@ -1,61 +1,30 @@
-<html>
-
-
-
-
 <?php
 
+session_start();
 
+$_SESSION ['login']=$_POST['login'];
+$_SESSION ['prenom']=$_POST['prenom'];
+$_SESSION ['nom']=$_POST['nom'];
+$_SESSION ['password']=$_POST['password'];
+$_SESSION ['confirmpassword']=$_POST['confirmpassword'];
 
-if(isset($_POST['formulaire']))
-{
-    if($_POST['password']==$_POST['confirmpassword'] )
-    {
-        echo 'Bien joué gros !'.'</br>';
-    }
-
-    if($_POST['password']!=$_POST['confirmpassword'] )
-    {
-        echo 'Mot de passe et confirmation de mot de passe invalide'.'</br>';
-    }
-
-    if(!isset($_POST['password']))
-    {
-        echo 'Veuillez remplir le mot de passe'.'</br>';
-    }
-    if(!isset($_POST['confirmpassword']))
-    {
-        echo 'Veuillez remplir la confirmation de mot de passe'.'</br>';
-    }
-    if(!isset($_POST['password']) and !isset($_POST['confirmpassword']))
-    {
-        echo 'Veuillez saisir les mots de passe et confirmation'.'</br>';
-    }
-
-    else
-    {
-        echo 'Veuillez remplir le formulaire'.'</br>';
-    }
-
-    if(($_POST['login'])=='admin' and ($_POST['prenom'])=='admin' and ($_POST['nom'])=='admin' and ($_POST['password'])=='admin' and ($_POST['confirmpassword'])=='admin')
-    {
-       echo $resultat= mysqli_fetch_all($query);
-    }
-}
-
-
-//Requete sur TOUTES les infos
-$connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT * FROM `moduleconnexion`";
-$query = mysqli_query($connexion,$requete);
-$resultat= mysqli_fetch_all($query);
-
-$resultat.'</br>'; 
 
 ?>
 
 
-<form action="inscription.php" name="formulaire" method="post">
+<html>
+
+<!--
+- Une page contenant un formulaire d’inscription (inscription.php) :
+Le formulaire doit contenir l’ensemble des champs présents dans la table
+“utilisateurs” (sauf “id”) + une confirmation de mot de passe. Dès qu’un
+utilisateur remplit ce formulaire, les données sont insérées dans la base de
+données et l’utilisateur est redirigé vers la page de connexion. -->
+
+<!-- FORMULAIRE D'INSCRIPTION -->
+
+
+<form action="inscription.php" name="inscription" method="post">
 
 Login : <input type="text" name="login" value=""><br>
 Prenom : <input type="text" name="prenom" value=""><br>
@@ -64,5 +33,33 @@ Password : <input type="text" name="password" value=""><br>
 Confirmation password : <input type="text" name="confirmpassword" value=""><br>
 <input type="submit" name="submit" value="S'inscrire"><br>
 </form>
+
+<?php
+
+//Requete sur TOUTES les infos
+$connexion = mysqli_connect("localhost","root","","moduleconnexion");
+$requete = "SELECT * FROM `utilisateurs`";
+$query = mysqli_query($connexion,$requete);
+$resultat= mysqli_fetch_all($query);
+
+
+
+// CONDITION TOUT LES CHAMPS REMPLI/ AVEC PASSWORD!=CONFIRMPASSWORD/ OU AUCUNE VALEURS ENTREE
+if ($_POST['prenom'] and $_POST['nom'] and $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'])
+{
+    echo 'Félicitation le formulaire est remplis !'.'</br>';
+}
+
+else if($_POST['password'] != $_POST['confirmpassword'])
+{
+    echo 'Le password et la confirmation du password sont différents'.'</br>';
+}
+else
+{
+    echo 'Veuillez remplir le formulaire entièrement'.'</br>';
+}
+
+
+?>
 
 </html>
