@@ -37,9 +37,10 @@ SET login = '$_POST[login]',
   prenom = '$_POST[prenom]',
   nom = '$_POST[nom]',
   password = '$_POST[password]'
-WHERE id = 175";
+WHERE id = 193";
 $query1 = mysqli_query($connexion1,$requete1);
-$resultat1= mysqli_fetch_all($query1);
+
+//  $resultat1= mysqli_fetch_all($query1);
 
 
 
@@ -54,11 +55,11 @@ $resultat1= mysqli_fetch_all($query1);
 
 <form action="profil.php" name="modification" method="post">
 
-<label for="login">Login : </label> <input type="text" name="login" placeholder="<?php echo $resultat[1][0] ; ?>" value="" required><br>
-<label for="prenom">Prénom : </label> <input type="text" name="prenom" placeholder="<?php echo $resultat[1][1] ; ?>" value=""  required><br>
-<label for="nom">Nom : </label> <input type="text" name="nom" placeholder="<?php echo $resultat[1][2] ; ?>" value=""><br>
-<label for="password">Password : </label> <input type="text" name="password" placeholder=" <?php echo $resultat[1][3] ; ?>" value=""  required><br>
-<label for="confirmpassword">Confirmation password :</label>  <input type="text" name="confirmpassword" placeholder="<?php echo $resultat[1][3]; ?>" value="" required><br>
+<label for="login">Login : </label> <input type="text" name="login" placeholder="<?php echo $resultat[3][0] ; ?>" value="" required><br>
+<label for="prenom">Prénom : </label> <input type="text" name="prenom" placeholder="<?php echo $resultat[3][1] ; ?>" value=""  required><br>
+<label for="nom">Nom : </label> <input type="text" name="nom" placeholder="<?php echo $resultat[3][2] ; ?>" value=""><br>
+<label for="password">Password : </label> <input type="text" name="password" placeholder=" <?php echo $resultat[3][3] ; ?>" value=""  required><br>
+<label for="confirmpassword">Confirmation password :</label>  <input type="text" name="confirmpassword" placeholder="<?php echo $resultat[3][3]; ?>" value="" required><br>
 <input type="submit" name="submit" value="Modifier"><br>
 </form>
 

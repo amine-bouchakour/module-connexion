@@ -11,7 +11,7 @@ la base de données. -->
 <?php
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
+$requete = "SELECT `Id`, `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_all($query);
 
@@ -21,6 +21,7 @@ $resultat= mysqli_fetch_all($query);
 <table>
     <thead>
         <tr>
+            <th>Id</th>
             <th>Login</th>
             <th>Prénom</th>
             <th>Nom</th>

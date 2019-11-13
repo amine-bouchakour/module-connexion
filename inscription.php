@@ -8,6 +8,12 @@ session_start();
     $_SESSION ['password']=$_POST['password'];
     $_SESSION ['confirmpassword']=$_POST['confirmpassword'];
 
+    // $connexion = mysqli_connect("localhost","root","","moduleconnexion");
+    // $requete = "SELECT max(Id) FROM utilisateurs";
+    // $query = mysqli_query($connexion,$requete);
+    // $resultat= mysqli_fetch_all($query);
+
+    // $_SESSION ['ID']= $resultat;
 
     
 
@@ -64,6 +70,7 @@ if ($_POST['prenom'] and $_POST['nom'] and $_POST['login'] and $_POST['password'
     $connexion = mysqli_connect("localhost","root","","moduleconnexion");
     $requete = "INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES ('$_SESSION[login]', '$_SESSION[prenom]', '$_SESSION[nom]', '$_SESSION[password]')";
     $query = mysqli_query($connexion,$requete);
+    //header ('location : connexion.php');
     
 }
 

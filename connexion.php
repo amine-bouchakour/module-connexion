@@ -23,8 +23,8 @@ plusieurs) variables de session sont créées. -->
 
 
 <form action="connexion.php" name="connexion" method="post">
-<input type="text" name="login" placeholder="Login" value=""> <br>
-<input type="text" name='password' placeholder="Password" value=""> <br>
+<input type="text" name="login" placeholder="<?php echo $_SESSION['login'];  ?>" value=""> <br>
+<input type="text" name='password' placeholder="<?php echo $_SESSION['password'];  ?>" value=""> <br>
 <input type="submit" name="valider">
 </form>
 
@@ -36,7 +36,7 @@ plusieurs) variables de session sont créées. -->
 
 if($_POST['login']==$_SESSION['login'] and $_POST['password']==$_SESSION['password'])
 {
-    echo 'Bienvenue à toi '.$_SESSION['nom'].' '.$_SESSION['prenom'].'<br/>';
+    echo 'Bienvenue à toi '.$_SESSION['login'].' '.$_SESSION['prenom'].'<br/>';
 }
 
 else if($_POST['login']!=$_SESSION['login'] and $_POST['password']!=$_SESSION['password'] )

@@ -1,3 +1,9 @@
+<?php
+ session_start();
+
+?>
+
+
 <html>
 
 
@@ -7,7 +13,7 @@
 
 
 <?php
-
+echo '<h1>'.'Bienvenue à toi '.$_SESSION['login'].'!!!'.'</h1>'.'<br/>';
 
 
 
