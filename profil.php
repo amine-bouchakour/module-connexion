@@ -14,9 +14,10 @@ session_start();
 
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT `login`,`prenom`,`nom`,`password` FROM `utilisateurs`";
+$requete = "SELECT `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_all($query);
+
 
 
 
@@ -25,32 +26,22 @@ $resultat= mysqli_fetch_all($query);
 
 <html>
 
-<form action="inscription.php" name="inscription" method="post">
+<h1> Page Profil </h1>
 
-Login : <input type="text" name="login" value="<?php echo $_SESSION['login'] ; ?>"><br>
-Prenom : <input type="text" name="prenom" value="<?php echo $_SESSION['prenom'] ; ?>"><br>
-Nom : <input type="text" name="nom" value="<?php echo  $_SESSION['nom'] ; ?>"><br>
-Password : <input type="text" name="password" value=" <?php echo $_SESSION['password'] ; ?>"><br>
-Confirmation password : <input type="text" name="confirmpassword" value="<?php echo $_SESSION['confirmpassword'] ; ?>"><br>
-<input type="submit" name="submit" value="S'inscrire"><br>
+<form action="connexion.php" name="modification" method="post">
+
+<label for="login">Login : </label> <input type="text" name="login" value="<?php echo $resultat[0][0] ; ?>" required><br>
+<label for="prenom">Prénom : </label> <input type="text" name="prenom" value="<?php echo $resultat[0][2] ; ?>"  required><br>
+<label for="nom">Nom : </label> <input type="text" name="nom" value="<?php echo $resultat[0][2] ; ?>"><br>
+<label for="password">Password : </label> <input type="text" name="password" value=" <?php echo $resultat[0][3] ; ?>"  required><br>
+<label for="confirmpassword">Confirmation password :</label>  <input type="text" name="confirmpassword" value="<?php echo $resultat[0][3]; ?>" required><br>
+<input type="submit" name="submit" value="Modifier"><br>
 </form>
 
 <?php
 
 
-$i=0;
-while($i<count($resultat))
-{
-    $j=0;
-    echo "<tr>";
-    while ($j<count($resultat[$i]))
-    {
-        echo "<td>".$resultat[$i][$j]."</td>".' ';
-        $j++;
-    }
-    echo "</tr>";
-    $i++;
-} 
+
 ?>
 
 

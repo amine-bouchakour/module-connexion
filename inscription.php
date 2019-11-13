@@ -2,17 +2,21 @@
 
 session_start();
 
-$_SESSION ['login']=$_POST['login'];
-$_SESSION ['prenom']=$_POST['prenom'];
-$_SESSION ['nom']=$_POST['nom'];
-$_SESSION ['password']=$_POST['password'];
-$_SESSION ['confirmpassword']=$_POST['confirmpassword'];
+    $_SESSION ['prenom']=$_POST['prenom'];
+    $_SESSION ['nom']=$_POST['nom'];
+    $_SESSION ['login']= $_POST['login'];
+    $_SESSION ['password']=$_POST['password'];
+    $_SESSION ['confirmpassword']=$_POST['confirmpassword'];
 
+
+    
 
 ?>
 
 
 <html>
+
+<h1> Page Inscription </h1>
 
 <!--
 - Une page contenant un formulaire d’inscription (inscription.php) :
@@ -26,13 +30,18 @@ données et l’utilisateur est redirigé vers la page de connexion. -->
 
 <form action="inscription.php" name="inscription" method="post">
 
-Login : <input type="text" name="login" value=""><br>
-Prenom : <input type="text" name="prenom" value=""><br>
-Nom : <input type="text" name="nom" value=""><br>
-Password : <input type="text" name="password" value=""><br>
-Confirmation password : <input type="text" name="confirmpassword" value=""><br>
+<label for="login">Login :</label> <input type="text" name="login" value="" ><br>
+<label for="prenom">Prénom :</label> <input type="text" name="prenom" value="" ><br>
+<label for="nom">Nom :</label> <input type="text" name="nom" value="" ><br>
+<label for="password">Password :</label> <input type="text" name="password" value="" ><br>
+<label for="confirmpassword">Confirmation password :</label> <input type="text" name="confirmpassword" value="" ><br>
 <input type="submit" name="submit" value="S'inscrire"><br>
 </form>
+
+
+
+
+
 
 <?php
 
@@ -40,19 +49,34 @@ Confirmation password : <input type="text" name="confirmpassword" value=""><br>
 
 
 // CONDITION TOUT LES CHAMPS REMPLI/ AVEC PASSWORD!=CONFIRMPASSWORD/ OU AUCUNE VALEURS ENTREE
-if ($_POST['prenom'] and $_POST['nom'] and $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'])
+
+if($_POST['prenom']=='admin' and $_POST['nom']=='admin' and $_POST['login']=='admin' and $_POST['password']=='admin' and $_POST['confirmpassword']=='admin')
 {
-    echo 'Félicitation le formulaire est remplis !'.'</br>';
+    echo 'bienvenue administrateur !'.'<br/>';
 }
 
-else if($_POST['password'] != $_POST['confirmpassword'])
+if ($_POST['prenom'] and $_POST['nom'] and $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'] and ($_POST['password'] == $_POST['confirmpassword']))
+
 {
-    echo 'Le password et la confirmation du password sont différents'.'</br>';
+    echo 'Félicitation ! le formulaire a bien été rempli !'.'</br>';
+    
+
+    $connexion = mysqli_connect("localhost","root","","moduleconnexion");
+    $requete = "INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES ('$_SESSION[login]', '$_SESSION[prenom]', '$_SESSION[nom]', '$_SESSION[password]')";
+    $query = mysqli_query($connexion,$requete);
+    
+}
+
+else if($_POST['prenom'] and $_POST['nom'] and  $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'] and ($_POST['password'] != $_POST['confirmpassword']))
+{
+    echo 'Le password et la confirmation du password sont différents'.'</br>';    
 }
 else
 {
-    echo 'Veuillez remplir le formulaire entièrement'.'</br>';
+    echo 'Veuillez svp remplir le formulaire entièrement'.'</br>';
 }
+
+
 
 
 ?>

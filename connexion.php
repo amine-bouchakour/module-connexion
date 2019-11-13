@@ -1,5 +1,17 @@
+
+
+<?php
+session_start();
+
+
+
+
+
+?>
+
 <html>
 
+<h1> Page Connexion </h1>
 
 <!-- - Une page contenant un formulaire de connexion (connexion.php) :
 Le formulaire doit avoir deux inputs : “login” et “password”. Lorsque le
@@ -8,21 +20,39 @@ informations, alors l’utilisateur est considéré comme connecté et une (ou
 plusieurs) variables de session sont créées. -->
 
 
+
+
+<form action="connexion.php" name="connexion" method="post">
+<input type="text" name="login" placeholder="Login" value=""> <br>
+<input type="text" name='password' placeholder="Password" value=""> <br>
+<input type="submit" name="valider">
+</form>
+
+
+
+
 <?php
 
 
+if($_POST['login']==$_SESSION['login'] and $_POST['password']==$_SESSION['password'])
+{
+    echo 'Bienvenue à toi '.$_SESSION['nom'].' '.$_SESSION['prenom'].'<br/>';
+}
+
+else if($_POST['login']!=$_SESSION['login'] and $_POST['password']!=$_SESSION['password'] )
+
+{
+    echo 'Mauvais login ou mot de passe'.'<br/>';
+}
+
+else
+{
+    echo 'Identification incorrecte'.'<br/>';
+}
 
 
 
 
 ?>
-
-
-<form action="connexion.php" name="connexion" method="post">
-Login : <input type="text" name="login" value=""> <br>
-Password : <input type="text" name='password' value=""> <br>
-<input type="submit" name="valider">
-</form>
-
 
 </html>
