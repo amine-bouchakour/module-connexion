@@ -1,44 +1,29 @@
-<?php
-
-
-
-
-
-
-?>
-
 <html>
 
 <h1> Page Connexion </h1>
 
-<!-- - Une page contenant un formulaire de connexion (connexion.php) :
-Le formulaire doit avoir deux inputs : “login” et “password”. Lorsque le
-formulaire est validé, s’il existe un utilisateur en bdd correspondant à ces
-informations, alors l’utilisateur est considéré comme connecté et une (ou
-plusieurs) variables de session sont créées. -->
-
-
-
-
+<!-- FORMULAIRE CONNEXION DE TYPE POST  -->
 <form action="connexion.php" name="connexion" method="post">
-Login : <input type="text" name="login" value="" > <br>
-Password : <input type="text" name='password' value=""> <br>
+<label for="login">Login :</label> <input type="text" name="login" value="" > <br>
+<label for="password">Password :</label> <input type="text" name='password' value=""> <br>
 <input type="submit" name="connexion">
+<input type="submit" name="modifierprofil" value="modifier profil">
 </form>
 
 
 
-
+                        <!-- PHP -->
 <?php
 
-
+// REQUETE INFORMATION SUR TOUT LES UTLISATEURS
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
 $requete = "SELECT * FROM utilisateurs";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_all($query);
 
-$compte=false;
 
+// CONDITION VERIFICATION SI LOGIN && PASSWORD EXISTE DANS BDD MySQL POUR OUVERTURE DE SESSION SUR PAGE INDEX.PHP
+$compte=false;
 if(isset($_POST['connexion'])==true)
 {
     foreach($resultat as $key =>$value)
@@ -63,30 +48,11 @@ else
     echo 'Identification incorrecte'.'<br/>';
 }
 
-
-// if($_POST['login']==$_SESSION['login'] and $_POST['password']==$_SESSION['password'])
-// {
-//     echo 'Bienvenue à toi '.$_SESSION['login'].' '.$_SESSION['prenom'].'<br/>';
-//     header ('location:index.php');
-//     session_start();
-
-//     $prenom=$_POST['prenom'];
-//     $nom=$_POST['nom'];
-//     $login= $_POST['login'];
-//     $password=$_POST['password'];
-//     $confirmpassword=$_POST['confirmpassword'];
-// }
-
-// else if($_POST['login']!=$_SESSION['login'] and $_POST['password']!=$_SESSION['password'] )
-
-// {
-//     echo 'Mauvais login ou mot de passe'.'<br/>';
-// }
-
-
-
-
-
+// CONDITION ET LIEN POUR MODIFIER PROFIL
+if(isset($_POST['modifierprofil'])==true)
+{
+    header ('Location:profil.php');
+}
 
 ?>
 

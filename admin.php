@@ -1,25 +1,22 @@
 <html>
-
-<!-- - Une page d’administration (admin.php) :
-Cette page est accessible UNIQUEMENT pour l’utilisateur “admin”. Elle
-permet de lister l’ensemble des informations des utilisateurs présents dans
-la base de données. -->
-
 <h1> Page Administrateur </h1>
 
-
+            <!-- PHP -->
 <?php
 session_start();
 
-//Requete sur TOUTES les infos
+//Requete sur TOUTES les infos des utilisateurs
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT `Id`, `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
+$requete = "SELECT * FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_all($query);
 
-
 ?>
 
+
+            <!-- HTML -->
+
+<!-- TABLEAU AVEC AFFICHAGE REQUETTE MySQL TOUTES LES INFORMATIONS SUR TOUT LES UTILISATEURS DANS LA BDD MySQL -->
 <table>
     <thead>
         <tr>
@@ -31,21 +28,23 @@ $resultat= mysqli_fetch_all($query);
         </tr>
     </thead>
     <tbody>
+        
             <?php 
             $i=0;
             while($i<count($resultat))
-            {
-                $j=0;
-                echo "<tr>";
-                while ($j<count($resultat[$i]))
                 {
-                    echo "<td>".$resultat[$i][$j]."</td>";
-                    $j++;
-                }
-                echo "</tr>";
-                $i++;
-            } 
+                    $j=0;
+                    echo "<tr>";
 
+                    while ($j<count($resultat[$i]))
+                        {
+                            echo "<td>".$resultat[$i][$j]."</td>";
+                            $j++;
+                        }
+                        
+                    echo "</tr>";
+                    $i++;
+                } 
             ?>
 
     </tbody>
