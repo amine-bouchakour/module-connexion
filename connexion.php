@@ -1,7 +1,5 @@
-
-
 <?php
-session_start();
+
 
 
 
@@ -23,9 +21,9 @@ plusieurs) variables de session sont créées. -->
 
 
 <form action="connexion.php" name="connexion" method="post">
-<input type="text" name="login" placeholder="<?php echo $_SESSION['login'];  ?>" value=""> <br>
-<input type="text" name='password' placeholder="<?php echo $_SESSION['password'];  ?>" value=""> <br>
-<input type="submit" name="valider">
+Login : <input type="text" name="login" value="" > <br>
+Password : <input type="text" name='password' value=""> <br>
+<input type="submit" name="connexion">
 </form>
 
 
@@ -34,21 +32,58 @@ plusieurs) variables de session sont créées. -->
 <?php
 
 
-if($_POST['login']==$_SESSION['login'] and $_POST['password']==$_SESSION['password'])
+$connexion = mysqli_connect("localhost","root","","moduleconnexion");
+$requete = "SELECT * FROM utilisateurs";
+$query = mysqli_query($connexion,$requete);
+$resultat= mysqli_fetch_all($query);
+
+$compte=false;
+
+if(isset($_POST['connexion'])==true)
 {
-    echo 'Bienvenue à toi '.$_SESSION['login'].' '.$_SESSION['prenom'].'<br/>';
+    foreach($resultat as $key =>$value)
+    {
+        if($resultat[$key][1] == $_POST['login'] && $resultat[$key][4]== $_POST['password'])
+        {
+            $compte =true;
+        }
+    }
 }
 
-else if($_POST['login']!=$_SESSION['login'] and $_POST['password']!=$_SESSION['password'] )
-
+if($compte== true)
 {
-    echo 'Mauvais login ou mot de passe'.'<br/>';
+    session_start();
+    $_SESSION['login'] = $_POST['login'];
+    echo 'Bienvenue '.$_SESSION['login'].'<br/>';
+    header ('Location:index.php');
 }
 
 else
 {
     echo 'Identification incorrecte'.'<br/>';
 }
+
+
+// if($_POST['login']==$_SESSION['login'] and $_POST['password']==$_SESSION['password'])
+// {
+//     echo 'Bienvenue à toi '.$_SESSION['login'].' '.$_SESSION['prenom'].'<br/>';
+//     header ('location:index.php');
+//     session_start();
+
+//     $prenom=$_POST['prenom'];
+//     $nom=$_POST['nom'];
+//     $login= $_POST['login'];
+//     $password=$_POST['password'];
+//     $confirmpassword=$_POST['confirmpassword'];
+// }
+
+// else if($_POST['login']!=$_SESSION['login'] and $_POST['password']!=$_SESSION['password'] )
+
+// {
+//     echo 'Mauvais login ou mot de passe'.'<br/>';
+// }
+
+
 
 
 

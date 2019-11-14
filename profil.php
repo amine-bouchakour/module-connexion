@@ -11,14 +11,7 @@ qui sont actuellement stockées en base de données. -->
 
 <?php
 session_start();
-session_destroy();
 
-session_start();
-$_SESSION ['prenom']=$_POST['prenom'];
-$_SESSION ['nom']=$_POST['nom'];
-$_SESSION ['login']= $_POST['login'];
-$_SESSION ['password']=$_POST['password'];
-$_SESSION ['confirmpassword']=$_POST['confirmpassword'];
 
 
 
@@ -26,19 +19,17 @@ $_SESSION ['confirmpassword']=$_POST['confirmpassword'];
 
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
+$requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
 $query = mysqli_query($connexion,$requete);
-$resultat= mysqli_fetch_all($query);
+$resultat= mysqli_fetch_assoc($query);
+
+var_dump($resultat);
+
+echo ($resultat['login']);
 
 
-$connexion1 = mysqli_connect("localhost","root","","moduleconnexion");
-$requete1 = "UPDATE utilisateurs
-SET login = '$_POST[login]',
-  prenom = '$_POST[prenom]',
-  nom = '$_POST[nom]',
-  password = '$_POST[password]'
-WHERE id = 193";
-$query1 = mysqli_query($connexion1,$requete1);
+
+
 
 //  $resultat1= mysqli_fetch_all($query1);
 
@@ -55,21 +46,49 @@ $query1 = mysqli_query($connexion1,$requete1);
 
 <form action="profil.php" name="modification" method="post">
 
-<label for="login">Login : </label> <input type="text" name="login" placeholder="<?php echo $resultat[3][0] ; ?>" value="" required><br>
-<label for="prenom">Prénom : </label> <input type="text" name="prenom" placeholder="<?php echo $resultat[3][1] ; ?>" value=""  required><br>
-<label for="nom">Nom : </label> <input type="text" name="nom" placeholder="<?php echo $resultat[3][2] ; ?>" value=""><br>
-<label for="password">Password : </label> <input type="text" name="password" placeholder=" <?php echo $resultat[3][3] ; ?>" value=""  required><br>
-<label for="confirmpassword">Confirmation password :</label>  <input type="text" name="confirmpassword" placeholder="<?php echo $resultat[3][3]; ?>" value="" required><br>
-<input type="submit" name="submit" value="Modifier"><br>
+<label for="login">Login : </label> <input type="text" name="login" value="<?php echo $resultat['login'] ; ?>"  required><br>
+<label for="prenom">Prénom : </label> <input type="text" name="prenom" value="<?php echo $resultat['prenom'] ; ?>"  required><br>
+<label for="nom">Nom : </label> <input type="text" name="nom" value="<?php echo $resultat['nom'] ; ?>" required><br>
+<label for="password">Password : </label> <input type="text" name="password" value=" <?php echo $resultat['password'] ; ?>"  required><br>
+<label for="confirmpassword">Confirmation password :</label>  <input type="text" name="confirmpassword" value="<?php echo $resultat['password']; ?>" required><br>
+<input type="submit" name="submit" value="modifier"><br>
 </form>
 
 
 
 <?php
 
-echo 'Bienvenue à toi '.$_SESSION['login'].' '.$_SESSION['prenom'].'<br/>';
+    if(isset($_POST['submit']))
+    {
+        $requeteupdate = "UPDATE utilisateurs SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' , password='".$_POST['password']."' WHERE login = '".$_SESSION['login']."'";
+
+        if($resultat['login'] != $_POST['login'])
+        {
+            mysqli_query($connexion,$requeteupdate);
+            $_SESSION['login'] = $_POST['login'];
+            header('Location: profil.php');
+        }
+        elseif($resultat['prenom'] != $_POST['prenom'])
+        {
+            mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
+        }
+        elseif($resultat['nom'] != $_POST['nom'])
+        {
+            mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
+        }
+        elseif($resultat['password'] != $_POST['password'])
+        {
+            mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
+        }
+        else
+        {
+            echo " Impossible de changer d'informations ";
+        }
+    }
 
 ?>
-
 
 </html>

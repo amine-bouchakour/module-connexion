@@ -9,6 +9,8 @@ la base de données. -->
 
 
 <?php
+session_start();
+
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
 $requete = "SELECT `Id`, `login`,`prenom`,`nom`,`password` FROM `utilisateurs` ORDER BY `utilisateurs`.`Id` ASC";
