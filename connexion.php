@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Page de connexion</title>
-    <link rel="stylesheet" href="moduleconnexion.css">
+    <link rel="stylesheet" href="moduleconnexion1.css">
     
 </head>
 
@@ -12,7 +12,7 @@
 
 </header>
 
-<body>
+<body class="body1">
     
 <main>
 
@@ -21,9 +21,9 @@
 <div class="formulaire">
 <!-- FORMULAIRE CONNEXION DE TYPE POST  -->
 <form class="flexrow" action="connexion.php" name="connexion" method="post">
-<input type="text" name="login" placeholder="Login" value="" > <br>
-<input type="password" name='password' placeholder="Password" value=""> <br> 
-<div class='boutonenvoyer'><input type="submit" name="connexion" value='Se connecter'>
+<input class="bor" type="text" name="login" placeholder="Login" value="" > <br>
+<input class="bor" type="password" name='password' placeholder="Password" value=""> <br> 
+<div class='boutonenvoyer'><input class="bor1" type="submit" name="connexion" value='Se connecter'>
 </form>
 <p class="align1"><?php verificationconnexion() ?></p>
 </div>
@@ -67,7 +67,12 @@ function verificationconnexion()
         echo 'Bienvenue '.$_SESSION['login'].'<br/>';
         header ('Location:index.php');
     }
-    
+
+    if(isset($_POST['connexion'])==false)
+    {
+        echo 'Veuillez saisir vos identifiants';
+    }
+
     else
     {
         echo 'Identification incorrecte'.'<br/>';

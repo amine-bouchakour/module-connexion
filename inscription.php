@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Page d'inscription</title>
-    <link rel="stylesheet" href="moduleconnexion.css">
+    <link rel="stylesheet" href="moduleconnexion1.css">
     
 </head>
 
@@ -13,12 +13,12 @@
 <div class="formulaire1">
 <!-- FORMULAIRE INSCRIPTION DE TYPE POST  -->
 <form class="flexrow" action="inscription.php" name="inscription" method="post">
-<input type="text" name="login" placeholder="Login" value="" required><br>
-<input type="text" name="prenom" placeholder="Prénom"value="" required><br>
-<input type="text" name="nom" placeholder="Nom"value="" required><br>
-<input type="text" name="password" placeholder="Password" value="" required><br>
-<input type="text" name="confirmpassword" placeholder="Confirmation password"value="" required><br>
-<div class='boutonenvoyer1'><input type="submit" name="submit" value="S'inscrire"></div><br>
+<input class="bor" type="text" name="login" placeholder="Login" value="" required><br>
+<input class="bor" type="text" name="prenom" placeholder="Prénom"value="" required><br>
+<input class="bor" type="text" name="nom" placeholder="Nom"value="" required><br>
+<input class="bor" type="text" name="password" placeholder="Password" value="" required><br>
+<input class="bor" type="text" name="confirmpassword" placeholder="Confirmation password"value="" required><br>
+<div class='boutonenvoyer1'><input class="bor1" type="submit" name="submit" value="Valider l'inscription"></div><br>
 </form>
 <p class="align"><?php verificationinscription() ?></p>
 </div>
@@ -84,10 +84,36 @@ function verificationinscription()
                 {
                     echo 'Mot de passe et confirmation de mot de passe différent'.'<br/>';
                 }
+
+                
         }
+
+        
 
 }
 
 ?>
+
+<header>
+
+</header>
+
+
+<body class="body2">
+    
+
+<main>
+
+
+
+</main>
+
+
+</body>
+
+<footer>
+
+
+</footer>
 
 </html>
