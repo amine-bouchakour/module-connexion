@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <title>Page d'acceuil</title>
-        <link rel="stylesheet" href="moduleconnexion.css">
+        <link rel="stylesheet" href="moduleconnexion1.css">
         
     </head>
 
@@ -28,7 +28,7 @@
         <main>
 
             <?php 
-            if($_SESSION['login'])
+            if(isset($_SESSION['login']))
 
             {
                 

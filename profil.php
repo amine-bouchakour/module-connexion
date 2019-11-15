@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
 $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
@@ -76,13 +77,13 @@ function verificationprofil()
                     header('Location:index.php');
                 }
     
-            elseif($resultat1['password'] != $_POST['password'])
+            elseif($resultat1['password'] != $_POST['password'] )
                 {
                     $query1 = mysqli_query($connexion,$requeteupdate);
                     $_SESSION['password'] = $_POST['password'];
                     header('Location:index.php');
                 }
-    
+
             else
                 {
                     echo " Impossible de modifier les informations ";
