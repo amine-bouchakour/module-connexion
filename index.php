@@ -16,13 +16,28 @@
 
 
     </header>
-
-
+    <form action="" method="post">
+<input type="submit" name="deconnexion" value="deconnexion">
+    
+</form>
     <main>
 
-        <?php echo '<h1>'.'Bienvenue sur notre site '.$_SESSION['login'].' !'.'</h1>'.'<br/>';
+        <?php 
+        
+        if($_SESSION['login'])
+
+        {
+            echo '<h1>'.'Bienvenue sur notre site '.$_SESSION['login'].' !'.'</h1>'.'<br/>';
+        }
+
         
         
+        if(isset($_POST['deconnexion']))
+        {
+            session_start();
+            session_destroy();
+            header ('Location:connexion.php');
+        }
         
         ?>
 

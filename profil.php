@@ -13,7 +13,7 @@ $resultat= mysqli_fetch_assoc($query);
 
 <head>
     <meta charset="utf-8">
-    <title>Page d'inscription</title>
+    <title>Page modification profil</title>
     <link rel="stylesheet" href="moduleconnexion.css">
     
 </head>
