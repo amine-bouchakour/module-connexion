@@ -16,7 +16,7 @@
     
 <main>
 
-<p class="titre2">Page Connexion</p>
+<p class="titre2">Connexion</p>
 
 <!-- FORMULAIRE CONNEXION DE TYPE POST  -->
 <div class="formulaire">
@@ -75,7 +75,7 @@ function verificationconnexion()
 
     else
     {
-        echo 'Identification incorrecte'.'<br/>';
+        echo '<p class="color">'.'Identification incorrecte'.'</p>'.'<br/>';
     }
 }
 

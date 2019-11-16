@@ -44,7 +44,7 @@ $resultat= mysqli_fetch_all($query);
 <body class="body4">
     
 
-    <p class="titre3">Page Administrateur </p>
+    <p class="titre3">Administrateur (ONLY)</p>
 
     <!-- TABLEAU AVEC AFFICHAGE REQUETTE MySQL TOUTES LES INFORMATIONS SUR TOUT LES UTILISATEURS DANS LA BDD MySQL -->
     <table>

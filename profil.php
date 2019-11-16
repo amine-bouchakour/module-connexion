@@ -87,7 +87,7 @@ function verificationprofil()
 
 </body>
 
-<p class="titre">Page Profil</p>
+<p class="titre">Votre profil</p>
 
 <!-- FORMULAIRE CHANGEMENT DONNEES PROFIL -->
 <div class="formulaire2">

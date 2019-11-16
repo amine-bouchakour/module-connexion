@@ -8,7 +8,7 @@
     
 </head>
 
-<p class="titre1"> Page Inscription </p>
+<p class="titre1"> Inscription </p>
 
 <div class="formulaire1">
 <!-- FORMULAIRE INSCRIPTION DE TYPE POST  -->
@@ -76,13 +76,13 @@ function verificationinscription()
     
                     else 
                         {
-                            echo 'Login déjà éxistant'.'<br/>';
+                            echo '<p class="text1">'.'Login déjà éxistant'.'</p>'.'<br/>';
                         }
                 }
             // CONDITION VERIFICATION SI MOT DE PASSE ET CONFIRMATION IDENTIQUES
             if($_POST['prenom'] and $_POST['nom'] and  $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'] and ($_POST['password'] != $_POST['confirmpassword']))
                 {
-                    echo 'Mot de passe et confirmation de mot de passe différent'.'<br/>';
+                    echo '<p class="text1">'.'Le "mot de passe" et la "confirmation de mot de passe" sont différents !'.'</p>'.'<br/>';
                 }
 
                 
