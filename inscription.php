@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Page d'inscription</title>
-    <link rel="stylesheet" href="moduleconnexion1.css">
+    <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>
 
-<h1> Page Inscription </h1>
+<p class="titre1"> Page Inscription </p>
 
 <div class="formulaire1">
 <!-- FORMULAIRE INSCRIPTION DE TYPE POST  -->

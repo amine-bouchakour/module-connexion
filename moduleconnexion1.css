@@ -19,7 +19,7 @@ background-size: cover;
     height: 250px ;
     background-color: rgba(222, 184, 135, 0.829);
     padding: 60px 50px 40px;
-    margin: 10% auto;
+    margin: 0% auto;
     font-size: xx-large;
     border-radius:3em ;
     border : 4px black solid;
@@ -35,6 +35,14 @@ background-size: cover;
     font-size: x-large;
     font-weight: bold;
 }
+/* TITRE PAGE CONNEXION*/
+.titre2{
+    font-size: 350%;
+    font-weight: bold;
+    text-align: center;
+    margin-top : 130px;
+}
+
 
 
 
@@ -54,7 +62,7 @@ background-size: cover;
     height: 450px ;
     background-color: rgba(222, 184, 135, 0.808);
     padding: 60px 50px 40px;
-    margin: 5% auto;
+    margin: 0% auto;
     font-size: xx-large;
     border-radius:3em ;
     border : 4px black solid;   
@@ -62,6 +70,13 @@ background-size: cover;
 /* INNSCRIPTION */
 .boutonenvoyer1{
     margin : 10px auto;
+}
+/* TITRE PAGE INSCRIPTION*/
+.titre1{
+    font-size: 350%;
+    font-weight: bold;
+    text-align: center;
+    margin-top : 50px;
 }
 
 
@@ -81,16 +96,16 @@ background-size: cover;
     margin: 0px;
     width: 100%;
     height: 100%;
-    background-image: url('https://bit.ly/33Vo4da');
+    background-image: url('https://i.pinimg.com/originals/4a/4f/41/4a4f4189e94567d34465424f2b39f4d4.jpg');
     background-size: cover;
 }
 /* PAGE PROFIL */
 .formulaire2{
     width: 450px ;
-    height: 600px ;
+    height: 570px ;
     background-color: rgba(222, 184, 135, 0.89);
-    padding: 60px 50px 40px;
-    margin: 5% auto;
+    padding: 40px 50px 40px;
+    margin: 0% auto;
     font-size: xx-large;
     border-radius:3em ;
     border : 4px black solid;
@@ -101,6 +116,13 @@ background-size: cover;
     font-size: x-large;
     font-weight: bold;
     color: rgb(243, 235, 202);
+}
+/* TITRE PAGE PROFIL*/
+.titre{
+    font-size: 350%;
+    font-weight: bold;
+    text-align: center;
+    margin-top : 50px;
 }
 
 
@@ -136,17 +158,31 @@ input{
 }
 
 
-/* TABLEAUX PAGE ADMIN */
 
+
+/* BODY PAGE ADMIN */
+.body4{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(221, 218, 191);
+    }
+/* TABLEAUX PAGE ADMIN */
 table{
     margin-left: 300px;
+    border-radius: 2em;
+    padding: 0px 50px;
+    background-color:  rgb(120, 165, 167);
+    border : 2px black solid;
+    font-size: 130%;
+    margin : 5% auto;
 }
 
-table,tr,td,th{
+tr,td,th{
     border : 2px black solid;
-    font-size: 135%;
+    font-size: 130%;
     margin : 5% auto;
-    background-color: rgba(206, 136, 23, 0.342);
+    background-color: rgba(232, 226, 251, 0.329);
 }
 
 tr,td{
@@ -154,10 +190,26 @@ tr,td{
 }
 
 .tr{
-    background-color: rgba(255, 127, 80, 0.959);
+     border : 2px black solid;
+    font-size: 130%;
+    margin : 5% auto;
+    background-color: rgba(255, 127, 80, 0.795);
 }
 
 th{
     font-size: xx-large;
     
 }
+
+/* TITRE PAGE ADMINISTRATEURS*/
+.titre3{
+    font-size: 350%;
+    font-weight: bold;
+    text-align: center;
+    margin-top : 50px;
+    background-color: rgb(120, 165, 167);
+    color:rgba(255, 0, 0, 0.746);
+}
+
+
+

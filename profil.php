@@ -15,23 +15,11 @@ $resultat= mysqli_fetch_assoc($query);
 <head>
     <meta charset="utf-8">
     <title>Page modification profil</title>
-    <link rel="stylesheet" href="moduleconnexion1.css">
+    <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>
 
-<h1> Page Profil </h1>
-<div class="formulaire2">
-<!-- FORMULAIRE CHANGEMENT DONNEES PROFIL -->
-<form class="flexrow " action="profil.php" name="modification" method="post">
-<label class="align2" for="login">LOGIN</label> <input class="bor" type="text" name="login" value="<?php echo $resultat['login'] ; ?>"  required><br>
-<label class="align2" for="prenom">PRENOM </label> <input class="bor" type="text" name="prenom" value="<?php echo $resultat['prenom'] ; ?>"  required><br>
-<label class="align2" for="nom">NOM</label> <input class="bor" type="text" name="nom" value="<?php echo $resultat['nom'] ; ?>" required><br>
-<label class="align2" for="password">PASSWORD</label> <input class="bor" type="text" name="password" value="<?php echo $resultat['password'] ; ?>"  required><br>
-<label class="align2" for="confirmpassword">CONFIRMATION PASSWORD</label>  <input class="bor" type="text" name="confirmpassword" value="<?php echo $resultat['password']; ?>" required><br>
-<div class='boutonenvoyer1'><input class="bor1" type="submit" name="submit" value="Modifier profil"></div>
-</form>
-<p class="align"><?php verificationprofil() ?></p>
-</div>
+
 
 
 
@@ -98,5 +86,20 @@ function verificationprofil()
     
 
 </body>
+
+<p class="titre">Page Profil</p>
+
+<!-- FORMULAIRE CHANGEMENT DONNEES PROFIL -->
+<div class="formulaire2">
+<form class="flexrow " action="profil.php" name="modification" method="post">
+<label class="align2" for="login">LOGIN</label> <input class="bor" type="text" name="login" value="<?php echo $resultat['login'] ; ?>"  required><br>
+<label class="align2" for="prenom">PRENOM </label> <input class="bor" type="text" name="prenom" value="<?php echo $resultat['prenom'] ; ?>"  required><br>
+<label class="align2" for="nom">NOM</label> <input class="bor" type="text" name="nom" value="<?php echo $resultat['nom'] ; ?>" required><br>
+<label class="align2" for="password">PASSWORD</label> <input class="bor" type="text" name="password" value="<?php echo $resultat['password'] ; ?>"  required><br>
+<label class="align2" for="confirmpassword">CONFIRMATION PASSWORD</label>  <input class="bor" type="text" name="confirmpassword" value="<?php echo $resultat['password']; ?>" required><br>
+<div class='boutonenvoyer1'><input class="bor1" type="submit" name="submit" value="Modifier profil"></div>
+</form>
+<p class="align"><?php verificationprofil() ?></p>
+</div>
 
 </html>

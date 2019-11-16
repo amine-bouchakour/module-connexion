@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Page Administrateur</title>
-    <link rel="stylesheet" href="moduleconnexion1.css">
+    <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
 </head>
 
-<h1> Page Administrateur </h1>
 
             <!-- PHP -->
 <?php
@@ -42,23 +41,30 @@ $resultat= mysqli_fetch_all($query);
 
             <!-- HTML -->
 
-<!-- TABLEAU AVEC AFFICHAGE REQUETTE MySQL TOUTES LES INFORMATIONS SUR TOUT LES UTILISATEURS DANS LA BDD MySQL -->
-<table>
-    <thead>
-        <tr class="tr">
-            <th>Id</th>
-            <th>Login</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Password</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-            affichagetoutesdonnees()
-        ?>
+<body class="body4">
+    
 
-    </tbody>
-</table>
+    <p class="titre3">Page Administrateur </p>
+
+    <!-- TABLEAU AVEC AFFICHAGE REQUETTE MySQL TOUTES LES INFORMATIONS SUR TOUT LES UTILISATEURS DANS LA BDD MySQL -->
+    <table>
+        <thead>
+            <tr class="tr">
+                <th>Id</th>
+                <th>Login</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+                affichagetoutesdonnees()
+            ?>
+
+        </tbody>
+    </table>
+
+</body>
 
 </html>

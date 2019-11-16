@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Page de connexion</title>
-    <link rel="stylesheet" href="moduleconnexion1.css">
+    <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>
 
@@ -16,10 +16,10 @@
     
 <main>
 
-<h1> Page Connexion </h1>
+<p class="titre2">Page Connexion</p>
 
-<div class="formulaire">
 <!-- FORMULAIRE CONNEXION DE TYPE POST  -->
+<div class="formulaire">
 <form class="flexrow" action="connexion.php" name="connexion" method="post">
 <input class="bor" type="text" name="login" placeholder="Login" value="" > <br>
 <input class="bor" type="password" name='password' placeholder="Password" value=""> <br> 

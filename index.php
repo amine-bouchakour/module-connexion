@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <title>Page d'acceuil</title>
-        <link rel="stylesheet" href="moduleconnexion1.css">
+        <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
         
     </head>
 
