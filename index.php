@@ -1,7 +1,34 @@
-<?php session_start(); ?>
+<?php session_start();
 
-<!doctype html>
-<html lang="fr">
+function connectornot()
+{
+    
+    if(isset($_SESSION['login']))
+    
+    {
+        ?><a href="profil.php"><input class="bor2 input1" type="submit" name="modifierprofil" value="modifier profil"></a>
+        <a href="deconnexion.php"><input class="bor2 input1" type="submit" name="deconnexion" value="Deconnexion"></a><?php
+    
+        echo '<h1 class="align3">'.'Bienvenue sur notre site '.$_SESSION['login'].' !'.'</h1>'.'<br/>';
+    
+    }
+   
+    
+    else 
+    
+    {
+        ?><a href="connexion.php"><input class="bor2 input1" type="submit" name="seconnecter" value="Se connecter"></a>
+        <a href="inscription.php"><input class="bor2 input1" type="submit" name="sinscrire" value="S'inscrire"></a><?php
+        
+        echo '<p class="align3">'.'Bienvenue sur notre site nouvel(le) aventurier(e) !'.'</p>';
+    
+    }
+}
+
+
+?>
+
+<html>
 
     <head>
         <meta charset="utf-8">
@@ -17,66 +44,13 @@
 
         </header>
 
-            <form action="" method="post">
-            
-            <input type="submit" name="seconnecter" value="Se connecter">
-            <input type="submit" name="sinscrire" value="S'inscrire">
-            <input type="submit" name="modifierprofil" value="modifier profil">
-            <input type="submit" name="deconnexion" value="Deconnexion">
-            </form>
         
         <main>
 
             <?php 
-            if(isset($_SESSION['login']))
-
-            {
-                
-                {
-                    echo '<h1>'.'Bienvenue sur notre site '.$_SESSION['login'].' !'.'</h1>'.'<br/>';
-                }
-
-                if(isset($_POST['deconnexion']))
-                    {
-                        session_start();
-                        session_destroy();
-                        header ('Location:index.php');
-                    }
-
-                
-
-                if(isset($_POST['modifierprofil']))
-                    {
-                        header ('Location:profil.php');
-                    }
-            }
-
-
-
-            else 
-
-            {
-                
-                if(isset($_POST['seconnecter']))
-                    {
-                        header ('Location:connexion.php');
-                    }
-                
-                echo '<h1>'.'Bienvenue sur notre site nouvel aventurier !'.'</h1>';
-
-                if(isset($_POST['sinscrire']))
-                    {
-                        header ('Location:inscription.php');
-                    }
-
-            }
+                echo connectornot();
             ?>
     
-            
-            
-
-
-
 
 
         </main>
@@ -94,12 +68,3 @@
 
 
 
-if(isset($_POST['seconnecter']))
-                    {
-                        header ('Location:connexion.php');
-                    }
-
-                if(isset($_POST['sinscrire']))
-                    {
-                        header ('Location:inscription.php');
-                    }
