@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Page Administrateur</title>
+    <title>Administrateur</title>
     <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
 </head>
 

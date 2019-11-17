@@ -4,7 +4,7 @@ session_start();
 
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
+$requete = "SELECT * FROM utilisateurs WHERE login='".isset($_SESSION['login'])."' ";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_assoc($query);
 ?>
@@ -14,7 +14,7 @@ $resultat= mysqli_fetch_assoc($query);
 
 <head>
     <meta charset="utf-8">
-    <title>Page modification profil</title>
+    <title>Profil</title>
     <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>

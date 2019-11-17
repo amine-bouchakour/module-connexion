@@ -1,17 +1,17 @@
 body{
-margin: 0px;
-width: 100%;
-height: 100%;
-background-color:rgb(119, 119, 240);
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(119, 119, 240);
 }
 
 /* BODY PAGE CONNEXION */
 .body1{
-margin: 0px;
-width: 100%;
-height: 100%;
-background-image: url('https://bit.ly/2NPI6jw');
-background-size: cover;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://bit.ly/2NPI6jw');
+    background-size: cover;
 }
 /* PAGE CONNEXION */
 .formulaire{
@@ -177,7 +177,7 @@ input{
     font-size: 180%;
     text-align: center;
     margin-left: 500px;
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: rgba(236, 189, 101, 0.877);
     padding: 10px 13px 10px;
 }
@@ -217,7 +217,7 @@ tr,td{
 }
 
 .tr{
-     border : 2px black solid;
+    border : 2px black solid;
     font-size: 130%;
     margin : 5% auto;
     background-color: rgba(255, 127, 80, 0.795);
@@ -242,11 +242,12 @@ th{
 
 
 
+
 /* PAGE INDEX */
 .align3{
     text-align: center;
-   margin-top: 100px;
-   font-size: 300%;
+    margin-top: 110px;
+    font-size: 300%;
 }
 
 /* BODY PAGE INDEX */
@@ -255,4 +256,54 @@ th{
     width: 100%;
     height: 100%;
     background-color:rgb(221, 218, 191);
+}
+
+.p1{
+    text-align: center;
+    font-size: 160%;
+    font-family: cursive;
+    margin: 200px 0px 100px;
+    padding: 0px 30%;
+}
+
+.titrarticle{
+    width:80%;
+    height:200px;
+    margin: 50px auto;
+    background-color: yellow;
+}
+
+.divarticle{
+    width:80%;
+    height:550px;
+    margin: 20px auto 200px;
+    background-color: rgb(255, 123, 0);
+}
+
+
+header{
+    width:100%;
+    height:100px;
+    margin: 20px auto;
+    background-color: rgb(255, 255, 255); 
+}
+
+.divimg1{
+    width:  800px;
+    height: 500px;
+    margin: 50px auto 200px;
+    background-color: grey;
+    background-size: cover;
+}
+
+.img1{
+    width:  800px;
+    height: 500px;
+    border: 3px black solid;
+    border-radius: 2em;
+}
+
+.ctr{
+    text-align: center;
+    padding: 0px 10% ;
 }

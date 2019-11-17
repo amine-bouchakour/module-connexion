@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Page d'inscription</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>
 
-<p class="titre1"> Inscription </p>
+<p class="titre1">Inscription</p>
 
 <div class="formulaire1">
 <!-- FORMULAIRE INSCRIPTION DE TYPE POST  -->
@@ -41,7 +41,7 @@ function verificationinscription()
    
     
     // CONDITION VERIFICATION INPUT ENVOYER FORMULAIRE
-    if(isset(($_POST)['submit'])==true)
+    if (isset(($_POST)['submit'])==true)
     
     
         {   
@@ -53,25 +53,20 @@ function verificationinscription()
             $resultat1= mysqli_num_rows($query1);
 
             // CONDITION VERIFICATION POUR ADMIN
-            if($_POST['prenom']=='admin' and $_POST['nom']=='admin' and $_POST['login']=='admin' and $_POST['password']=='admin' and $_POST['confirmpassword']=='admin')
+            if ($_POST['prenom']=='admin' and $_POST['nom']=='admin' and $_POST['login']=='admin' and $_POST['password']=='admin' and $_POST['confirmpassword']=='admin')
                 {
-                    echo 'Bienvenue Administrateur !'.'<br/>';
                     header('Location:admin.php');
                 }
     
             // CONDITION VERIFICATION SI LOGIN UNIQUE SI CHAMP REMPLI  + OUVERTURE DE PAGE CONNEXION.PHP SI TOUT VALIDE
-            if(isset($_POST['prenom']) and isset($_POST['nom']) and isset($_POST['login']) and isset($_POST['password']) and isset($_POST['confirmpassword']) and ($_POST['password'] == $_POST['confirmpassword']))
+            if (isset($_POST['prenom']) and isset($_POST['nom']) and isset($_POST['login']) and isset($_POST['password']) and isset($_POST['confirmpassword']) and ($_POST['password'] == $_POST['confirmpassword']))
+
                 {
                     if($resultat1==0)
-                        {
-                            
+                        {                     
                             $requete = "INSERT INTO `utilisateurs` (`login`, `prenom`, `nom`, `password`) VALUES ('".$_POST['login']."', '".$_POST['prenom']."','".$_POST['nom']."', '".$_POST['password']."')";
-                            $query = mysqli_query($connexion,$requete);
+                            $query1 = mysqli_query($connexion,$requete);
                             header('Location:connexion.php');
-    
-                            
-    
-    
                         }
     
                     else 
@@ -79,8 +74,9 @@ function verificationinscription()
                             echo '<p class="text1">'.'Login déjà éxistant'.'</p>'.'<br/>';
                         }
                 }
+                
             // CONDITION VERIFICATION SI MOT DE PASSE ET CONFIRMATION IDENTIQUES
-            if($_POST['prenom'] and $_POST['nom'] and  $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'] and ($_POST['password'] != $_POST['confirmpassword']))
+            if ($_POST['prenom'] and $_POST['nom'] and  $_POST['login'] and $_POST['password'] and $_POST['confirmpassword'] and ($_POST['password'] != $_POST['confirmpassword']))
                 {
                     echo '<p class="text1">'.'Le "mot de passe" et la "confirmation de mot de passe" sont différents !'.'</p>'.'<br/>';
                 }

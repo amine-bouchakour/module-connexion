@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Page de connexion</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="moduleconnexion1.css" type="text/css">
     
 </head>
