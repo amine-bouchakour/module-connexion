@@ -82,8 +82,6 @@ function verificationconnexion()
 
 </body>
 
-<footer>
 
-</footer>
 
 </html>
