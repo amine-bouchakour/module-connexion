@@ -8,9 +8,6 @@
     
 </head>
 
-<header>
-
-</header>
 
 <body class="body1">
     

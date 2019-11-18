@@ -90,9 +90,6 @@ function verificationinscription()
 
 ?>
 
-<header>
-
-</header>
 
 
 <body class="body2">
