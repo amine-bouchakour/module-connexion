@@ -104,9 +104,6 @@ function verificationinscription()
 
 </body>
 
-<footer>
 
-
-</footer>
 
 </html>
