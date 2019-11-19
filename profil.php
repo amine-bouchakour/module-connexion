@@ -4,7 +4,7 @@ session_start();
 
 //Requete sur TOUTES les infos
 $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-$requete = "SELECT * FROM utilisateurs WHERE login='".isset($_SESSION['login'])."' ";
+$requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."' ";
 $query = mysqli_query($connexion,$requete);
 $resultat= mysqli_fetch_assoc($query);
 ?>
@@ -35,13 +35,12 @@ function verificationprofil()
     if(isset($_POST['submit']))
         
         {
-
             $connexion = mysqli_connect("localhost","root","","moduleconnexion");
-    $requeteupdate = "UPDATE utilisateurs 
-            SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' , password='".$_POST['password']."' 
-            WHERE login = '".$_SESSION['login']."'";
-    $query1 = mysqli_query($connexion,$requeteupdate);
-    $resultat1= mysqli_fetch_all($query1);
+            $requeteupdate = "UPDATE utilisateurs 
+                    SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' , password='".$_POST['password']."' 
+                    WHERE login = '".$_SESSION['login']."'";
+            $query1 = mysqli_query($connexion,$requeteupdate);
+            $resultat1= mysqli_fetch_all($query1);
             
     
             if($resultat1['login'] != $_POST['login'])
